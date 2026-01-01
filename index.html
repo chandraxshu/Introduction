@@ -112,13 +112,33 @@
       gap: 50px;
     }
 
+    .hero-right {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .hero-blob {
+      position: absolute;
       width: 350px;
       height: 350px;
       background: linear-gradient(135deg, #00f2fe, #4facfe);
       border-radius: 50%;
       filter: blur(60px);
       animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-img {
+      position: relative;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,0.3);
+      z-index: 2;
     }
 
     @keyframes float {
@@ -171,7 +191,18 @@
       padding: 40px;
       background: rgba(0,0,0,0.6);
       font-size: 0.9rem;
-      opacity: 0.6;
+      opacity: 0.8;
+    }
+
+    footer a {
+      color: #4facfe;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -190,11 +221,15 @@
 <section id="home">
   <div>
     <h1>Hi, I'm Chandranshu</h1>
-    <p>Student • Developer • Builder</p>
-    <p>I build interactive web projects, tools, and creative tech solutions.</p>
+    <p>Pursuing BTech in IT @ IIIT-Allahabad | Aspiring SDE | Passionate About DSA, Dev Projects & AI Tools | Loves building websites and webpages.</p>
     <a href="#projects" class="btn">View Projects</a>
   </div>
-  <div class="hero-blob"></div>
+
+  <div class="hero-right">
+    <div class="hero-blob"></div>
+    <!-- Replace src with your uploaded image file name -->
+    <img src="profile.jpg" alt="Chandranshu" class="hero-img">
+  </div>
 </section>
 
 <section id="projects">
@@ -222,21 +257,25 @@
   <p>Milestones & highlights</p>
 
   <div class="timeline">
-    <!-- ADD NEW ACHIEVEMENTS HERE -->
+
     <div class="achievement">
-      <h3>2026 – Personal Portfolio Launched</h3>
-      <p>Designed and deployed a modern portfolio on GitHub Pages.</p>
+      <h3>2025 – JEE Success & College Journey</h3>
+      <p>Cleared JEE Main and JEE Advanced and began my BTech journey at IIIT Allahabad as an IT major.</p>
     </div>
 
     <div class="achievement">
-      <h3>2024 – Multiple Web Projects</h3>
-      <p>Built and hosted multiple HTML, CSS, and JavaScript projects.</p>
+      <h3>2024 – Global Project Recognition</h3>
+      <p>Built multiple projects using HTML, Java, CSS, and Python, gaining global recognition and winning an iPad from Hack Club (USA).</p>
     </div>
+
   </div>
 </section>
 
 <footer>
-  © 2026 Chandranshu • Built with pure HTML, CSS & JS
+  © 2026 Chandranshu • Built with pure HTML, CSS & JS <br><br>
+  <a href="https://www.codechef.com/users/chandraxshu" target="_blank">CodeChef</a> |
+  <a href="https://codeforces.com/profile/chandraxshu" target="_blank">Codeforces</a> |
+  <a href="https://www.linkedin.com/in/chandraxshu/" target="_blank">LinkedIn</a>
 </footer>
 
 <script>
