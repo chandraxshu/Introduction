@@ -8,4 +8,3 @@ This website works like **Instagram profile editing**:
 
 ---
 
-## 🌐 Live Demo
