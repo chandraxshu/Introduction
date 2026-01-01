@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chandranshu | Portfolio</title>
+
+  <meta name="description" content="Chandranshu's personal portfolio – projects, achievements, and work." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{background:radial-gradient(circle at top,#0f2027,#000);color:#eaeaea}
+    header{position:fixed;top:0;width:100%;padding:20px 10%;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.5);backdrop-filter:blur(10px);z-index:1000}
+    nav a{color:#fff;margin-left:20px;text-decoration:none}
+    section{min-height:100vh;padding:120px 10%}
+    h1{font-size:3.5rem;background:linear-gradient(135deg,#00f2fe,#4facfe);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .btn{padding:12px 26px;border-radius:30px;background:linear-gradient(135deg,#00f2fe,#4facfe);color:#000;font-weight:600;border:none;cursor:pointer}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-top:40px}
+    .card{background:rgba(255,255,255,.06);padding:25px;border-radius:18px;backdrop-filter:blur(10px)}
+
+    /* ADMIN BUTTON */
+    #addBtn{position:fixed;bottom:30px;right:30px;width:60px;height:60px;border-radius:50%;font-size:32px;display:none;z-index:2000}
+
+    /* MODAL */
+    #modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center}
+    .modal-box{background:#111;padding:30px;border-radius:20px;width:90%;max-width:400px}
+    .modal-box input,.modal-box textarea{width:100%;margin-top:10px;padding:10px;border-radius:8px;border:none}
+
+    footer{text-align:center;padding:40px;background:#000}
+  </style>
+</head>
+<body>
+
+<header>
+  <h2>Chandranshu</h2>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#achievements">Achievements</a>
+  </nav>
+</header>
+
+<section id="home">
+  <h1>Hi, I'm Chandranshu</h1>
+  <p>Developer • Student • Builder</p>
+  <br>
+  <button id="loginBtn" class="btn">Login as Admin</button>
+  <button id="logoutBtn" class="btn" style="display:none">Logout</button>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card">Your projects go here</div>
+  </div>
+</section>
+
+<section id="achievements">
+  <h2>Achievements</h2>
+  <div id="achievementList"></div>
+</section>
+
+<button id="addBtn" class="btn">+</button>
+
+<div id="modal">
+  <div class="modal-box">
+    <h3>Add Achievement</h3>
+    <input id="title" placeholder="Title" />
+    <textarea id="desc" placeholder="Description"></textarea>
+    <br><br>
+    <button class="btn" onclick="addAchievement()">Save</button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Chandranshu</p>
+</footer>
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script>
+  // 🔥 CONFIG – REPLACE WITH YOUR FIREBASE KEYS
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+
+  const adminEmail = "chandranshulg@outlook.com";
+
+  // AUTH
+  document.getElementById('loginBtn').onclick = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider);
+  }
+
+  document.getElementById('logoutBtn').onclick = () => auth.signOut();
+
+  auth.onAuthStateChanged(user => {
+    if(user && user.email === adminEmail){
+      addBtn.style.display = 'flex';
+      loginBtn.style.display = 'none';
+      logoutBtn.style.display = 'inline-block';
+    }else{
+      addBtn.style.display = 'none';
+      loginBtn.style.display = 'inline-block';
+      logoutBtn.style.display = 'none';
+    }
+  })
+
+  // ACHIEVEMENTS
+  const list = document.getElementById('achievementList');
+
+  db.collection('achievements').orderBy('time','desc').onSnapshot(snap=>{
+    list.innerHTML='';
+    snap.forEach(doc=>{
+      const d=doc.data();
+      list.innerHTML+=`<div class='card'><h3>${d.title}</h3><p>${d.desc}</p></div>`
+    })
+  })
+
+  // ADD
+  addBtn.onclick=()=>modal.style.display='flex'
+  modal.onclick=e=>{if(e.target.id==='modal')modal.style.display='none'}
+
+  function addAchievement(){
+    db.collection('achievements').add({
+      title:title.value,
+      desc:desc.value,
+      time:firebase.firestore.FieldValue.serverTimestamp()
+    })
+    modal.style.display='none'
+    title.value='';desc.value='';
+  }
+</script>
+
+</body>
+</html>
