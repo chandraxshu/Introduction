@@ -5,20 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chandranshu | Portfolio</title>
 
-  <!-- ================= SEO & META ================= -->
-  <meta name="description" content="Personal portfolio showcasing projects, achievements, and skills." />
+  <meta name="description" content="Chandranshu's personal portfolio showcasing projects and achievements." />
 
-  <!-- ================= GOOGLE FONT ================= -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ================= RESET ================= */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
       font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -27,40 +24,6 @@
       overflow-x: hidden;
     }
 
-    /* ================= GLOBAL ================= */
-    section {
-      min-height: 100vh;
-      padding: 100px 10%;
-      position: relative;
-    }
-
-    h1, h2, h3 {
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-
-    p {
-      line-height: 1.7;
-      opacity: 0.85;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 28px;
-      border-radius: 30px;
-      background: linear-gradient(135deg, #00f2fe, #4facfe);
-      color: #000;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0, 242, 254, 0.5);
-    }
-
-    /* ================= NAVBAR ================= */
     header {
       position: fixed;
       top: 0;
@@ -69,14 +32,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.5);
       backdrop-filter: blur(10px);
       z-index: 1000;
     }
 
     header h2 {
-      font-size: 1.6rem;
       color: #4facfe;
+      font-weight: 700;
     }
 
     nav a {
@@ -102,7 +65,46 @@
       width: 100%;
     }
 
-    /* ================= HERO ================= */
+    section {
+      min-height: 100vh;
+      padding: 120px 10%;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      background: linear-gradient(135deg, #00f2fe, #4facfe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      opacity: 0.85;
+      line-height: 1.7;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 28px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #00f2fe, #4facfe);
+      color: #000;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0,242,254,0.4);
+    }
+
+    /* HERO */
     #home {
       display: flex;
       align-items: center;
@@ -110,25 +112,12 @@
       gap: 50px;
     }
 
-    .hero-text h1 {
-      font-size: 3.5rem;
-      background: linear-gradient(135deg, #00f2fe, #4facfe);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-text h3 {
-      margin: 15px 0;
-      font-weight: 400;
-      color: #bbb;
-    }
-
     .hero-blob {
       width: 350px;
       height: 350px;
       background: linear-gradient(135deg, #00f2fe, #4facfe);
       border-radius: 50%;
-      filter: blur(40px);
+      filter: blur(60px);
       animation: float 6s ease-in-out infinite;
     }
 
@@ -137,7 +126,7 @@
       50% { transform: translateY(-30px); }
     }
 
-    /* ================= PROJECTS ================= */
+    /* PROJECTS */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -146,11 +135,11 @@
     }
 
     .card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 20px;
+      background: rgba(255,255,255,0.06);
       padding: 25px;
-      backdrop-filter: blur(15px);
-      transition: transform 0.4s, box-shadow 0.4s;
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      transition: 0.4s;
     }
 
     .card:hover {
@@ -158,9 +147,9 @@
       box-shadow: 0 20px 40px rgba(0,0,0,0.6);
     }
 
-    /* ================= ACHIEVEMENTS ================= */
+    /* ACHIEVEMENTS */
     .timeline {
-      margin-top: 50px;
+      margin-top: 40px;
       border-left: 2px solid #4facfe;
       padding-left: 30px;
     }
@@ -177,124 +166,92 @@
       transform: translateX(0);
     }
 
-    /* ================= FOOTER ================= */
     footer {
-      padding: 40px;
       text-align: center;
+      padding: 40px;
       background: rgba(0,0,0,0.6);
-    }
-
-    footer p {
       font-size: 0.9rem;
       opacity: 0.6;
     }
-
-    /* ================= ADMIN NOTICE ================= */
-    /* IMPORTANT:
-       Only YOU (repo owner) can add/edit achievements by
-       editing this HTML file and pushing to GitHub.
-       Visitors can only READ content (static hosting).
-    */
-
   </style>
 </head>
+
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header>
-    <h2>Chandranshu</h2>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<header>
+  <h2>Chandranshu</h2>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#achievements">Achievements</a>
+  </nav>
+</header>
 
-  <!-- ================= HOME ================= -->
-  <section id="home">
-    <div class="hero-text">
-      <h1>Hi, I'm Chandranshu</h1>
-      <h3>Developer • Student • Builder</h3>
-      <p>I build interactive web apps, automation tools, and creative tech projects.
-         This site is fully optimized, animated, and hosted on GitHub Pages.</p>
-      <br>
-      <a href="#projects" class="btn">Explore Projects</a>
+<section id="home">
+  <div>
+    <h1>Hi, I'm Chandranshu</h1>
+    <p>Student • Developer • Builder</p>
+    <p>I build interactive web projects, tools, and creative tech solutions.</p>
+    <a href="#projects" class="btn">View Projects</a>
+  </div>
+  <div class="hero-blob"></div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <p>Some of my work</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Project One</h3>
+      <p>Short description of your project.</p>
     </div>
-    <div class="hero-blob"></div>
-  </section>
-
-  <!-- ================= PROJECTS ================= -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <p>Some of my highlighted work</p>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Project One</h3>
-        <p>Description of your project. Add GitHub links later.</p>
-      </div>
-      <div class="card">
-        <h3>Project Two</h3>
-        <p>Description of your project. Add GitHub links later.</p>
-      </div>
-      <div class="card">
-        <h3>Project Three</h3>
-        <p>Description of your project. Add GitHub links later.</p>
-      </div>
+    <div class="card">
+      <h3>Project Two</h3>
+      <p>Short description of your project.</p>
     </div>
-  </section>
-
-  <!-- ================= ACHIEVEMENTS ================= -->
-  <section id="achievements">
-    <h2>Achievements</h2>
-    <p>Milestones and recognitions</p>
-
-    <div class="timeline">
-      <!-- ADD NEW ACHIEVEMENTS HERE (ONLY YOU EDIT THIS) -->
-      <div class="achievement">
-        <h3>2025 – Launched Personal Portfolio</h3>
-        <p>Hosted a fully animated portfolio on GitHub Pages.</p>
-      </div>
-
-      <div class="achievement">
-        <h3>2024 – Multiple Web Projects</h3>
-        <p>Built and deployed multiple HTML, JS, and Python projects.</p>
-      </div>
+    <div class="card">
+      <h3>Project Three</h3>
+      <p>Short description of your project.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ================= CONTACT ================= -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Find me online</p>
-    <br>
-    <a class="btn" href="https://github.com/" target="_blank">GitHub</a>
-  </section>
+<section id="achievements">
+  <h2>Achievements</h2>
+  <p>Milestones & highlights</p>
 
-  <!-- ================= FOOTER ================= -->
-  <footer>
-    <p>© 2026 Chandranshu • Built with ❤️ and pure HTML/CSS/JS</p>
-  </footer>
+  <div class="timeline">
+    <!-- ADD NEW ACHIEVEMENTS HERE -->
+    <div class="achievement">
+      <h3>2026 – Personal Portfolio Launched</h3>
+      <p>Designed and deployed a modern portfolio on GitHub Pages.</p>
+    </div>
 
-  <script>
-    /* ================= SCROLL ANIMATIONS ================= */
-    const achievements = document.querySelectorAll('.achievement');
+    <div class="achievement">
+      <h3>2024 – Multiple Web Projects</h3>
+      <p>Built and hosted multiple HTML, CSS, and JavaScript projects.</p>
+    </div>
+  </div>
+</section>
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.2 });
+<footer>
+  © 2026 Chandranshu • Built with pure HTML, CSS & JS
+</footer>
 
-    achievements.forEach(a => observer.observe(a));
+<script>
+  const achievements = document.querySelectorAll('.achievement');
 
-    /* ================= PERFORMANCE NOTE ================= */
-    // No external JS libraries used
-    // Optimized animations using CSS + IntersectionObserver
-  </script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  achievements.forEach(a => observer.observe(a));
+</script>
 
 </body>
 </html>
